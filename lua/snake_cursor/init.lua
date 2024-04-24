@@ -36,7 +36,7 @@ end
 
 
 function M.setup()
-    vim.api.nvim_create_autocmd({ 'CursorMoved' }, {
+    vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
         callback = Snake
     })
 end
