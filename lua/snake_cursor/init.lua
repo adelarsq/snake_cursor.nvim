@@ -3,7 +3,7 @@ local M = {}
 function Snake()
     vim.cmd([[highlight Snake1 cterm=bold gui=bold guibg=#c1f5a7 ]])
 
-    local bufnr = api.nvim_get_current_buf()
+    local bufnr = vim.api.nvim_get_current_buf()
 
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
     -- print("row = " .. row .. " - col " .. col)
@@ -12,7 +12,7 @@ function Snake()
         return
     end
 
-    local ns_id = api.nvim_buf_add_highlight(bufnr, 0, 'Snake1', row-1, col, col+1)
+    local ns_id = vim.api.nvim_buf_add_highlight(bufnr, 0, 'Snake1', row-1, col, col+1)
 
     local function bufferExists(bufnrarg)
         local buf_list = vim.api.nvim_list_bufs()
@@ -26,7 +26,7 @@ function Snake()
 
     local function reset_snake()
         if bufferExists(bufnr) then
-            api.nvim_buf_clear_namespace(bufnr, ns_id, row-1, row)
+            vim.api.nvim_buf_clear_namespace(bufnr, ns_id, row-1, row)
         end
     end
 
@@ -36,9 +36,7 @@ end
 
 
 function M.setup()
-    local autocmd = vim.api.nvim_create_autocmd
-
-    autocmd({ 'CursorMoved' }, {
+    vim.api.nvim_create_autocmd({ 'CursorMoved' }, {
         callback = Snake
     })
 end
