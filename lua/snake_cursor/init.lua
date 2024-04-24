@@ -1,7 +1,7 @@
 local M = {}
 
 function Snake()
-    cmd([[highlight Snake1 cterm=bold gui=bold guibg=#c1f5a7 ]])
+    vim.cmd([[highlight Snake1 cterm=bold gui=bold guibg=#c1f5a7 ]])
 
     local bufnr = api.nvim_get_current_buf()
 
