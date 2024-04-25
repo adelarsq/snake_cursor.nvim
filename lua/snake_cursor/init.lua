@@ -8,7 +8,7 @@ function Snake()
     local row, col = unpack(vim.api.nvim_win_get_cursor(0))
     -- print("row = " .. row .. " - col " .. col)
 
-    if row < 1 or col < 1 then
+    if row < 1 or col < 0 then
         return
     end
 
