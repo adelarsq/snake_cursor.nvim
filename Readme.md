@@ -9,14 +9,14 @@ Neovim plugin that turns your cursor into a snake while moving the cursor on the
 ### Plug
 
 ```
-Plug 'https://github.com/adelarsq/snake_cursor.nvim'
+Plug 'adelarsq/snake_cursor.nvim'
 ```
 
 ### Lazy
 
 ```lua
 {
-    'https://github.com/adelarsq/snake_cursor.nvim',
+    'adelarsq/snake_cursor.nvim',
     event = 'VeryLazy',
     config = function()
         require("snake_cursor").setup()
